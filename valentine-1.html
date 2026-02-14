@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Garamond', 'Georgia', serif;
+            background: linear-gradient(135deg, #FFB6C1 0%, #FFC0CB 50%, #FFB6D9 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section with Photo */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 1000px;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #8B0040;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-subtitle {
+            color: #6B0030;
+            font-size: 1.4em;
+            margin-bottom: 60px;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* Photo Styling */
+        .photo-container {
+            margin: 60px 0;
+            position: relative;
+        }
+
+        .photo-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .photo-frame {
+            width: 450px;
+            height: 600px;
+            border: 20px solid white;
+            box-shadow: 0 20px 60px rgba(139, 0, 64, 0.3);
+            border-radius: 4px;
+            overflow: hidden;
+            background: white;
+            position: relative;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #8B0040;
+            font-size: 1.1em;
+            font-style: italic;
+            white-space: nowrap;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #8B0040;
+            font-size: 0.9em;
+            letter-spacing: 2px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Content Section */
+        .content-section {
+            background: white;
+            padding: 100px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #8B0040;
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        /* Poem Styling */
+        .poem-section {
+            margin: 60px 0;
+            line-height: 2.2;
+            color: #333;
+            font-size: 1.15em;
+        }
+
+        .poem-line {
+            margin-bottom: 30px;
+            padding: 20px 30px;
+            background: linear-gradient(to right, rgba(255, 192, 203, 0.1) 0%, transparent 100%);
+            border-left: 4px solid #FFB6C1;
+            transition: all 0.3s ease;
+        }
+
+        .poem-line:hover {
+            background: linear-gradient(to right, rgba(255, 192, 203, 0.2) 0%, transparent 100%);
+            border-left-color: #8B0040;
+            padding-left: 40px;
+        }
+
+        .first-letter {
+            font-size: 2.5em;
+            font-weight: 600;
+            color: #8B0040;
+            float: left;
+            line-height: 1;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+
+        /* Secret Message */
+        .secret-message {
+            text-align: center;
+            margin: 80px 0;
+            padding: 50px 40px;
+            background: linear-gradient(135deg, #FFE4E9 0%, #FFD6E0 100%);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(139, 0, 64, 0.15);
+        }
+
+        .secret-message-title {
+            color: #8B0040;
+            font-size: 1.5em;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        .decoded {
+            font-size: 2.2em;
+            color: #8B0040;
+            font-style: italic;
+            font-weight: 600;
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+
+        /* Final Message */
+        .final-message {
+            text-align: center;
+            margin: 80px 0 60px;
+            font-size: 2.5em;
+            color: #8B0040;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        /* Decorative Elements */
+        .rose-decoration {
+            position: fixed;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .rose-left {
+            bottom: 20px;
+            left: 20px;
+            font-size: 150px;
+            color: #FFB6C1;
+        }
+
+        .rose-right {
+            top: 100px;
+            right: 20px;
+            font-size: 120px;
+            color: #FFB6C1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1em;
+            }
+
+            .photo-frame {
+                width: 300px;
+                height: 400px;
+                border: 15px solid white;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .poem-section {
+                font-size: 1em;
+            }
+
+            .decoded {
+                font-size: 1.5em;
+            }
+
+            .final-message {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative Roses -->
+    <div class="rose-decoration rose-left">🌹</div>
+    <div class="rose-decoration rose-right">🌹</div>
+
+    <!-- Hero Section with Photo -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Happy Valentine's Day</h1>
+            <p class="hero-subtitle">To My Beautiful Love</p>
+            
+            <div class="photo-container">
+                <div class="photo-wrapper">
+                    <div class="photo-frame">
+                        <img src="1000696564.jpg" alt="My Beautiful Valentine">
+                    </div>
+                    <div class="photo-caption">Forever Beautiful</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">SCROLL TO READ MY HEART ↓</div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">A Lantern Between Two Hearts</h2>
+
+            <div class="poem-section">
+                <div class="poem-line">
+                    <span class="first-letter">I</span> keep my small fear on a far shelf, but when dawn says your name it hushes it soft. Love turns ordinary mornings into quiet rites, a steady beat that keeps me warm.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">L</span>ove turns ordinary mornings into quiet rites, a steady beat that keeps me warm. You are the sparkle no crown could borrow, the laugh that stitches crooked hours whole.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">O</span>h, you are the sparkle no crown could borrow, the laugh that stitches crooked hours whole. And when silence leans like winter, I trace the map of your hand across my ribs, remembering home.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">V</span>ows aren't endless sun, they're stubborn lanterns held against the wind, gentle and true. This promise isn't endless sun, it's a stubborn lantern held against the wind, gentle and true.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">E</span>very word we share floats across the distance. Distance folds like paper between us, but our words float like paper boats and find the shore.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">Y</span>ou're worth more than gold or trophies could measure. Got no gold, no trophy to trade for you, only this vow I keep like breath between two hearts.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">O</span>n moonlit roads and dawn's soft edges I feel your touch. Nothing in the world can dull the echo of your name; it pulls me through restless nights, bright and sure.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">U</span>s? Reckless and tender, silly and sacred. On moonlit roads and dawn's soft edges I feel your touch, a ghost of warmth in the sand.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">A</span>nd together we stand, laughing at miles. Us? reckless and tender, silly and sacred, we laugh at miles, and together we stand! ❤️
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">N</span>othing in the world can dull the echo of your name; it pulls me through restless nights, bright and sure.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">D</span>istance folds like paper between us, but our words float like paper boats and find the shore.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">D</span>awn brings your name to my lips, a whispered prayer. On moonlit roads and dawn's soft edges I feel your touch, a ghost of warmth in the sand.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">I</span>n this vow I hold you, like breath between two hearts. Got no gold, no trophy to trade for you, only this vow I keep like breath between two hearts.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">S</span>o here we are, silly and sacred, laughing at miles. Us? reckless and tender, silly and sacred, we laugh at miles, and together we stand!
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">T</span>ogether we stand, through every storm and sunshine. Us? reckless and tender, silly and sacred, we laugh at miles, and together we stand! ❤️
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">A</span>nd nothing can keep us apart, no matter how far.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">N</span>othing in the world can dull the echo of your name.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">C</span>ome what may, my heart is forever yours.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">E</span>very day with you is a blessing I cherish.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">G</span>entle and true, this is my eternal promise.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">O</span>ur love transcends every mile, every moment.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">T</span>ogether forever, that's the story we write.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">N</span>ever doubt how deeply you mean to me.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">O</span>nly you complete my world in every way.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">T</span>his love will never fade, never falter.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">H</span>appy Valentine's Day to my one true love!
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">I</span> am yours, today and always, forever.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">N</span>othing compares to the joy you bring me.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">G</span>rateful for every precious moment with you.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">O</span>ur bond is unbreakable, unshakeable, eternal.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">N</span>o distance can ever separate our hearts.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">U</span>s against the world, now and forever.
+                </div>
+
+                <div class="poem-line">
+                    <span class="first-letter">S</span>o much love for you, more than words can say! ❤️
+                </div>
+            </div>
+
+            <div class="secret-message">
+                <p class="secret-message-title">Read the beginning of each paragraph</p>
+                <p style="margin-top: 20px; color: #6B0030; font-style: italic; font-size: 1.1em;">
+                    A hidden message awaits
+                </p>
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>
